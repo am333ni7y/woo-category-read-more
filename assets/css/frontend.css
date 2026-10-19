@@ -1,0 +1,102 @@
+/**
+ * Woo Category Read More - Frontend Styles
+ * Author: Ameeen
+ */
+
+:root {
+	--wccrm-btn-color: #1e3a8a;
+	--wccrm-btn-bg: #f8fafc;
+	--wccrm-btn-border: #e2e8f0;
+	--wccrm-fade-rgb: 255, 255, 255;
+}
+
+/* Clamped Description Container */
+.wccrm-clamped-box {
+	position: relative !important;
+	overflow: hidden !important;
+	transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1) !important;
+	will-change: max-height;
+}
+
+/* Gradient Fade Mask */
+.wccrm-fade-mask {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 85px;
+	background: linear-gradient(
+		to bottom,
+		rgba(var(--wccrm-fade-rgb), 0) 0%,
+		rgba(var(--wccrm-fade-rgb), 0.85) 65%,
+		rgba(var(--wccrm-fade-rgb), 1) 100%
+	);
+	pointer-events: none;
+	opacity: 1;
+	transition: opacity 0.25s ease;
+	z-index: 3;
+}
+
+.wccrm-clamped-box.wccrm-expanded .wccrm-fade-mask {
+	opacity: 0;
+	display: none;
+}
+
+/* Toggle Button Container */
+.wccrm-btn-wrapper {
+	margin: 14px 0 20px;
+	text-align: right;
+	direction: rtl;
+	clear: both;
+}
+
+/* Modern Minimalist Toggle Button */
+button.wccrm-toggle-btn {
+	background: var(--wccrm-btn-bg) !important;
+	color: var(--wccrm-btn-color) !important;
+	border: 1px solid var(--wccrm-btn-border) !important;
+	border-radius: 8px !important;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04) !important;
+	font-weight: 700 !important;
+	font-size: 14px !important;
+	line-height: 1.4 !important;
+	padding: 8px 18px !important;
+	min-height: 42px !important;
+	cursor: pointer !important;
+	display: inline-flex !important;
+	align-items: center !important;
+	gap: 8px !important;
+	transition: all 0.25s ease !important;
+	user-select: none;
+	-webkit-tap-highlight-color: transparent;
+}
+
+button.wccrm-toggle-btn:hover,
+button.wccrm-toggle-btn:focus-visible {
+	opacity: 0.92;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08) !important;
+}
+
+button.wccrm-toggle-btn .wccrm-arrow-icon {
+	width: 14px;
+	height: 14px;
+	fill: currentColor;
+	display: inline-block;
+	transition: transform 0.3s ease;
+	flex-shrink: 0;
+}
+
+button.wccrm-toggle-btn.is-active .wccrm-arrow-icon {
+	transform: rotate(180deg);
+}
+
+@media (max-width: 576px) {
+	.wccrm-btn-wrapper {
+		margin: 10px 0 16px;
+	}
+	button.wccrm-toggle-btn {
+		font-size: 13px !important;
+		padding: 7px 14px !important;
+		min-height: 38px !important;
+	}
+}
