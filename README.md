@@ -1,82 +1,106 @@
-# Woo Category Read More & Extra Description Clamper (WordPress Plugin)
+# Woo Category Read More & Extra Description Clamper
 
-> **افزونه هوشمند، فوق‌سبک و سئومحور ووکامرس برای ایجاد دکمه «مشاهده بیشتر / نمایش کمتر» روی توضیحات تکمیلی (Extra Description وودمارت و رنک‌مث) یا توضیحات دسته‌بندی ووکامرس بدون دستکاری سورس HTML اولیه موتورهای جستجو.**
+<p align="center">
+  <img src="assets/images/demo.gif" alt="Woo Category Read More Demo Animation" width="760" style="border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);" />
+</p>
 
-![Woo Category Read More Preview](assets/images/screenshot.png)
-
----
-
-## 🎯 مسأله و هدف افزونه (The Problem & Solution)
-
-در بسیاری از فروشگاه‌های ووکامرسی حرفه‌ای (مخصوصاً سایت‌هایی که از قالب **Woodmart**، صفحه‌ساز **Elementor** یا پلاگین سئوی **Rank Math** استفاده می‌کنند):
-1. در انتهای صفحات آرشیو دسته‌بندی محصولات، متن‌های سئویی طولانی (شامل معرفی جامع، هدینگ‌های H2/H3، راهنمای خرید و سوالات متداول FAQ) در بخش **توضیحات تکمیلی (Extra Description)** قرار می‌گیرد.
-2. بدون تاگل مناسب، این متن طولانی ساختار بصری صفحه را شلوغ کرده و اسکرول کاربر در موبایل و دسکتاپ را خسته‌کننده می‌کند.
-3. راه‌حل‌های سنتی PHP با پرینت مجدد متن، باعث ایجاد **محتوای تکراری (Duplicate Content)** و به هم ریختن چیدمان المنتور می‌شوند.
-4. **این افزونه:**
-   - **بدون دستکاری سورس اولیه HTML:** ربات گوگل کل محتوا و اسکیماها را با حداکثر Passage-Level Relevance در اولین رندر دریافت می‌کند.
-   - **تشخیص خودکار و هوشمند:** اگر صفحه دارای **Extra Description** باشد (وودمارت، المنتور، رنک‌مث)، آن را هدف می‌گیرد. اگر نباشد، سراغ توضیحات استاندارد دسته‌بندی می‌رود.
-   - **طراحی روان و سبک:** صفر وابستگی به jQuery (کاملاً Vanilla JS زیر ۳ کیلوبایت)، انیمیشن CSS نرم، گرادینت محو شونده (Fade Mask)، پشتیبانی از آکاردئون‌ها/FAQ داخل متن، و جلوگیری از پرش اسکرول کاربر هنگام بستن.
+<p align="center">
+  <a href="https://github.com/am333ni7y/woo-category-read-more/releases"><img src="https://img.shields.io/badge/version-1.0.0-blue.svg?style=flat-square" alt="Version 1.0.0"></a>
+  <a href="https://wordpress.org"><img src="https://img.shields.io/badge/WordPress-5.6%2B-blue.svg?style=flat-square" alt="WordPress 5.6+"></a>
+  <a href="https://woocommerce.com"><img src="https://img.shields.io/badge/WooCommerce-5.0%2B-purple.svg?style=flat-square" alt="WooCommerce 5.0+"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-GPLv2-green.svg?style=flat-square" alt="License GPLv2"></a>
+  <a href="https://ameeen.ir"><img src="https://img.shields.io/badge/author-AMEEEN%20(Amin%20Zahed)-orange.svg?style=flat-square" alt="Author AMEEEN (Amin Zahed)"></a>
+</p>
 
 ---
 
-## ✨ ویژگی‌های کلیدی
+## 🌐 English Documentation
 
-- ⚡ **Auto-Detection (تشخیص خودکار اولویت‌دار):**
-  - شناسایی هوشمند ویجت‌های المنتور وودمارت (`.elementor-widget-wd_shop_archive_extra_description`)
-  - شناسایی فیلدهای اکسترا دیسکریپشن محلی وودمارت (`.wd-shop-archive-extra-description` / `.wd-term-desc`)
-  - شناسایی اکسترا دیسکریپشن رنک‌مث (`.term-extra-description` / `.rank-math-extra-description`)
-  - فال‌بک خودکار به توضیحات عمومی دسته‌بندی در سایر قالب‌ها (`.term-description` / `.page-description`)
-- 🎨 **ماسک محو شونده پویا (Dynamic Fade Mask):** گرادینت شفاف در انتهای متن بسته برای ایجاد حس بصری طبیعی.
-- 📐 **پنل تنظیمات کاربری در وردپرس:**
-  - مسیر: **پیشخوان وردپرس > تنظیمات > مشاهده بیشتر دسته‌بندی**
-  - تنظیم ارتفاع در حالت بسته (پیش‌فرض: ۲۲۰ پیکسل ~ معادل ۵ تا ۶ خط متن)
-  - تغییر عناوین دکمه («مشاهده بیشتر» / «نمایش کمتر»)
-  - شخصی‌سازی رنگ متن، رنگ پس‌زمینه، بوردر و رنگ محو شدگی (Fade)
-  - قابلیت تعیین حالت هدف‌گیری: *خودکار*، *فقط اکسترا دیسکریپشن*، *فقط دیسکریپشن استاندارد* یا *هر دو*
-  - پشتیبانی از افزودن کلاس‌ها و سلکتورهای سفارشی
-- 🚀 **سازگار با Core Web Vitals:** بدون Layout Shift ناگهانی (CLS < 0.01) و زمان پاسخگویی آنی (0 INP Lag).
-- 📱 **کاملاً ریسپانسیو:** متناسب با تاچ موبایل و مانیتورهای عریض.
+### Overview
+**Woo Category Read More & Extra Description Clamper** is a high-performance, ultra-lightweight, SEO-first WordPress plugin that adds an elegant, animated **"Read More / Read Less"** toggle with a smooth gradient fade mask to WooCommerce category archives.
+
+Unlike traditional PHP reinjection scripts that echo duplicate descriptions (causing Google duplicate content penalties and breaking Elementor/Woodmart layouts), this plugin operates **directly on the existing DOM container in-place**. Googlebot and search engine crawlers index the complete raw HTML source and passage-level relevance on initial render, while human visitors enjoy a clean, compact view with no scroll fatigue.
+
+### 🌟 Key Features
+- **Smart Auto-Detection (Priority Hierarchy):**
+  - Detects **Extra Description** (Woodmart Theme, Elementor Archive templates, Rank Math SEO secondary description, etc.) first: `.elementor-widget-wd_shop_archive_extra_description`, `.wd-shop-archive-extra-description`, `.wd-term-desc`, `.term-extra-description`.
+  - Seamlessly falls back to standard WooCommerce category description (`.term-description`, `.page-description`) if no extra description is present.
+- **Zero jQuery Dependency:** Written in 100% pure modern Vanilla JavaScript (< 3KB). Zero blocking threads, 0 INP lag, and CLS < 0.01 for perfect Core Web Vitals.
+- **Dynamic Gradient Fade Mask:** Automatically generates a smooth fade overlay on the bottom of the clamped text box.
+- **Accordion / FAQ Friendly:** Seamlessly handles internal `<details>` FAQ accordions, tabs, and late-loading images without content clipping.
+- **Anti-Jump Smooth Scrolling:** If a visitor reads through an expanded text and clicks "Read Less", the viewport gently scrolls back to the top of the box.
+- **Dedicated WordPress Admin Dashboard:** Customize collapsed height, button labels, colors, fade gradient, targeting modes, and custom CSS selectors.
 
 ---
 
-## 📦 نحوه نصب و راه‌اندازی
+### 📸 Screenshots & UI Preview
 
-### روش ۱: آپلود فایل Zip (سریع‌ترین راه)
-1. فایل `woo-category-read-more.zip` موجود در این ریپازیتوری را دانلود کنید.
-2. در پیشخوان وردپرس به مسیر **افزونه‌ها > افزودن افزونه > بارگذاری افزونه** بروید.
-3. فایل زیپ را انتخاب و دکمه **نصب** و سپس **فعال‌سازی** را بزنید.
+| 1. Clamped View (Fade Mask + Button) | 2. Expanded View (Full SEO & FAQ Content) |
+| :---: | :---: |
+| ![Clamped Category View](assets/images/screenshot-1.png) | ![Expanded Category View](assets/images/screenshot-2.png) |
 
-### روش ۲: کلون از گیت‌هاب در مسیر افزونه‌ها
+| 3. WordPress Admin Settings Panel |
+| :---: |
+| ![Admin Settings](assets/images/screenshot-3.png) |
+
+---
+
+### 🚀 Installation
+
+#### Method 1: Upload via WordPress Admin (Recommended)
+1. Download `woo-category-read-more.zip` from this repository.
+2. Go to **WordPress Admin > Plugins > Add New > Upload Plugin**.
+3. Choose the `.zip` file and click **Install Now**, then **Activate**.
+
+#### Method 2: Clone via Git
 ```bash
 cd wp-content/plugins/
 git clone https://github.com/am333ni7y/woo-category-read-more.git
 ```
-سپس افزونه را از منوی افزونه‌های وردپرس فعال کنید.
+Then activate the plugin from the WordPress Plugins screen.
 
 ---
 
-## ⚙️ گزینه‌های هدف‌گیری (Target Modes)
+### ⚙️ Settings & Configuration
+Navigate to **WordPress Admin > Settings > Category Read More** (تنظیمات > مشاهده بیشتر دسته‌بندی):
 
-| حالت (Mode) | رفتار افزونه |
-| :--- | :--- |
-| **هوشمند / خودکار (Auto - پیش‌فرض)** | ابتدا وجود اکسترا دیسکریپشن بررسی می‌شود؛ در صورت وجود کلمپ روی آن اعمال می‌شود، وگرنه روی دیسکریپشن استاندارد. |
-| **فقط اکسترا (Extra Only)** | فقط باکس‌های توضیحات تکمیلی وودمارت و رنک‌مث کلمپ می‌شوند. |
-| **فقط استاندارد (Standard Only)** | فقط توضیحات بالای گرید / پیش‌فرض ووکامرس کلمپ می‌شود. |
-| **هر دو (Both)** | اگر هر دو توضیحات در صفحه وجود داشته باشند، روی هر دو دکمه قرار می‌گیرد. |
-
----
-
-## 🛠 سازگاری تست‌شده
-
-- **قالب‌ها:** Woodmart, Astra, Hello Elementor, OceanWP, Flatsome, Enfold, و قالب‌های اختصاصی
-- **صفحه‌سازها:** Elementor & Elementor Pro, Gutenberg Block Editor, WPBakery
-- **افزونه‌های سئو:** Rank Math / Rank Math Pro, Yoast SEO, SEOPress
-- **سیستم‌ها:** WooCommerce 5.0+ | WordPress 5.6+ | PHP 7.4 - 8.3
+- **Target Mode:**
+  - `Auto (Recommended)`: Prioritizes Extra Description (Woodmart / Elementor / Rank Math); falls back to standard Category Description.
+  - `Extra Only`: Only clamps extra description containers.
+  - `Standard Only`: Only clamps default category description.
+  - `Both`: Clamps both if both exist on the same page.
+- **Collapsed Height (px):** Default `220px` (~5-6 lines of text).
+- **Button Labels:** Customize open and closed states (e.g., "Read More" / "Read Less" or "مشاهده بیشتر" / "نمایش کمتر").
+- **Color Scheme:** Fully customizable button text, background, border, and fade mask gradient color.
+- **Auto-Scroll on Collapse:** Toggles smooth viewport restoration.
+- **Custom Selectors:** Add arbitrary comma-separated CSS selectors for niche custom themes.
 
 ---
 
-## 📄 لایسنس و حقوق نشر
+## 🇮🇷 راهنمای فارسی (Persian Documentation)
 
-- توسعه‌دهنده: **Ameeen (Amirhossein)**
-- وبسایت: [Ameeen.ir](https://ameeen.ir)
-- گواهینامه: **GPL v2 or later** - برای استفاده آزاد در تمام پروژه‌های اختصاصی و مشتریان.
+### معرفی و هدف افزونه
+در بسیاری از فروشگاه‌های ووکامرسی حرفه‌ای (به‌ویژه سایت‌هایی که از قالب **Woodmart**، صفحه‌ساز **Elementor** یا پلاگین **Rank Math** استفاده می‌کنند)، متن‌های سئویی طولانی در بخش **توضیحات تکمیلی (Extra Description)** در پایین صفحه قرار می‌گیرند.
+
+این افزونه بدون دستکاری سورس اولیه HTML (جهت تضمین ۱۰۰٪ ایندکس سئو توسط گوگل) و بدون تولید محتوای تکراری در PHP، مستقیماً همان کانتینر موجود در صفحه را به شکل هوشمند تشخیص داده و با گرادینت محو شونده (Fade Mask) و دکمه روان کلمپ می‌کند.
+
+### ✨ مزایای اصلی
+1. **اولویت‌بندی خودکار (Auto-Detection):** اگر اکسترا دیسکریپشن وودمارت یا رنک‌مث وجود داشته باشد، همان ریدمور می‌شود. اگر نباشد، توضیحات استاندارد دسته‌بندی ریدمور می‌شود.
+2. **سئوی امن:** سورس اولیه HTML برای گوگل‌بات و موتورهای جستجو کاملاً باز و خواناست و اسکیماها و Passage-Level Relevance دست‌نخورده باقی می‌مانند.
+3. **پرفورمنس بالا:** صفر وابستگی به jQuery، حجم کمتر از ۳ کیلوبایت Vanilla JS، و سازگار کامل با Core Web Vitals.
+4. **پنل مدیریت جامع:** تنظیم رنگ‌ها، گرادینت، ارتفاع بسته (پیکسل)، و متن دکمه‌ها در منوی **تنظیمات > مشاهده بیشتر دسته‌بندی**.
+
+---
+
+## 🏷️ Keywords & Topics
+`woocommerce`, `wordpress`, `read-more`, `category-description`, `extra-description`, `woodmart`, `elementor`, `rank-math`, `seo`, `core-web-vitals`, `vanilla-js`, `wordpress-plugin`, `term-description`, `faq-accordion`
+
+---
+
+## 👨‍💻 Author & Publisher
+- **Publisher / Author:** **AMEEEN (Amin Zahed)**
+- **Website:** [https://ameeen.ir](https://ameeen.ir)
+- **GitHub:** [@am333ni7y](https://github.com/am333ni7y)
+
+## 📄 License
+This plugin is licensed under the [GNU General Public License v2.0 or later](LICENSE).

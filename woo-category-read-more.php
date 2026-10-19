@@ -2,9 +2,9 @@
 /**
  * Plugin Name:       Woo Category Read More & Extra Description Clamper
  * Plugin URI:        https://github.com/am333ni7y/woo-category-read-more
- * Description:       افزونه هوشمند، سبک و سئومحور جهت اعمال دکمه «مشاهده بیشتر / بستن» روی توضیحات تکمیلی (Extra Description وودمارت و رنک‌مث) یا توضیحات دسته‌بندی ووکامرس بدون دستکاری سورس HTML اولیه موتورهای جستجو.
+ * Description:       Intelligent, zero-dependency, SEO-friendly WooCommerce plugin to clamp & toggle category descriptions and Woodmart/Rank Math extra descriptions with smooth fade mask and accessibility.
  * Version:           1.0.0
- * Author:            Ameeen (Amirhossein)
+ * Author:            AMEEEN (Amin Zahed)
  * Author URI:        https://ameeen.ir
  * License:           GPL v2 or later
  * Text Domain:       woo-category-read-more

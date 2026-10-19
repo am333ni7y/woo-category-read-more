@@ -66,7 +66,7 @@ class WC_Cat_Readmore_Admin {
 		$options = WC_Category_Read_More::get_options();
 		?>
 		<div class="wrap wccrm-admin-wrap" style="max-width: 900px; direction: rtl; text-align: right;">
-			<h1>تنظیمات دکمه مشاهده بیشتر دسته‌بندی ووکامرس (Ameeen)</h1>
+			<h1>تنظیمات دکمه مشاهده بیشتر دسته‌بندی ووکامرس | AMEEEN (Amin Zahed)</h1>
 			<p class="description">
 				این افزونه به صورت خودکار توضیحات تکمیلی (Extra Description وودمارت، رنک‌مث یا المنتور) و در صورت عدم وجود، توضیحات اصلی دسته‌بندی را با افکت Fade و دکمه روان کلمپ می‌کند.
 			</p>
